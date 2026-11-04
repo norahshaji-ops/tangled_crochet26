@@ -1946,14 +1946,14 @@ if (placeOrderButton) {
             e.preventDefault();
 
             const name = document.getElementById("custom-name").value.trim();
-            const phone = document.getElementById("custom-phone").value.trim();
             const email = document.getElementById("custom-email") ? document.getElementById("custom-email").value.trim() : "";
+            const phone = document.getElementById("custom-phone") ? document.getElementById("custom-phone").value.trim() : "";
             const idea = document.getElementById("custom-idea").value.trim();
             const colors = document.getElementById("custom-colors") ? document.getElementById("custom-colors").value.trim() : "";
             const neededBy = document.getElementById("custom-needed-by") ? document.getElementById("custom-needed-by").value.trim() : "";
 
-            if (!name || !phone || !idea) {
-                alert("Please fill in your name, WhatsApp/phone number, and custom crochet idea.");
+            if (!name || !email || !idea) {
+                alert("Please fill in your name, email address, and custom crochet idea.");
                 return;
             }
 
@@ -1980,7 +1980,7 @@ if (placeOrderButton) {
                         name: name,
                         phone: phone,
                         email: email,
-                        contact: phone || email,
+                        contact: email || phone,
                         idea: idea,
                         colors: colors,
                         neededBy: neededBy,
@@ -1996,7 +1996,7 @@ if (placeOrderButton) {
                     alert(
                         "✨ Custom Request Submitted Successfully!\n\n" +
                         "Order ID: " + orderId + "\n\n" +
-                        "Our artisan will review your design pattern & schedule availability, and reach out to your WhatsApp (" + phone + ") or Email within 24 hours with an availability confirmation & price quote.\n\n" +
+                        "Our artisan will review your design pattern & schedule availability, and reach out to your Email (" + email + ") within 24 hours with an availability confirmation & price quote.\n\n" +
                         "You can track review progress anytime on our Track Order page!"
                     );
 
@@ -2008,19 +2008,20 @@ if (placeOrderButton) {
                 }
             } catch (err) {
                 console.error("Backend error submitting custom order:", err);
-                // Fallback to WhatsApp chat directly
+                // Fallback to Email directly
                 const fallbackMsg = encodeURIComponent(
                     "Hello Tangled! 🧶\n\n" +
                     "I would like to place a custom crochet order:\n" +
                     "• Name: " + name + "\n" +
-                    "• Phone: " + phone + "\n" +
-                    (email ? "• Email: " + email + "\n" : "") +
+                    "• Email: " + email + "\n" +
+                    (phone ? "• Phone: " + phone + "\n" : "") +
                     "• Idea: " + idea + "\n" +
                     "• Colors: " + (colors || "Open to suggestions") + "\n" +
                     (neededBy ? "• Needed by: " + neededBy + "\n" : "")
                 );
-                alert("Thank you! Connecting you directly to Tangled on WhatsApp to send your request details.");
-                window.open("https://wa.me/919495841611?text=" + fallbackMsg, "_blank");
+                const mailSubject = encodeURIComponent("Custom Crochet Request - " + name);
+                alert("Thank you! Opening your email to send your request details directly to Tangled (moonthread2026@gmail.com).");
+                window.open("https://mail.google.com/mail/?view=cm&fs=1&to=moonthread2026@gmail.com&su=" + mailSubject + "&body=" + fallbackMsg, "_blank");
                 customForm.reset();
                 resetCustomImage();
                 if (customModal) customModal.classList.remove("active");
