@@ -1013,7 +1013,7 @@
                 ❌ Decline Custom Order Request
             </h2>
             <p style="font-size: 13.5px; color: #5A4632; margin-bottom: 18px;">
-                Select or write a polite reason for declining. We'll generate a friendly WhatsApp / Email message for the customer.
+                Select or write a polite reason for declining. We'll generate a friendly Email message for the customer.
             </p>
 
             <div id="decline-modal-summary" style="background: #FDF3F2; border: 1px solid #F5C6CB; border-radius: 10px; padding: 12px 14px; margin-bottom: 18px; font-size: 13px; color: #721C24;">
@@ -1282,48 +1282,42 @@
             const displayPhone = customer.phone || (customer.contact && !customer.contact.includes("@") ? customer.contact : "N/A");
             const displayEmail = customer.email || (customer.contact && customer.contact.includes("@") ? customer.contact : "");
 
-            // Format WhatsApp and Email text for Acceptance
+            // Format Email text for Acceptance
             const quotedPrice = order.quotedPrice || "";
             const estimatedDays = order.estimatedDays || "7–10 days";
 
-            const waAcceptText = encodeURIComponent(
-                `Hello ${customerName}! 🧶 Tangled Handmade Crochet has reviewed your custom order request (${order.id}):\n\n` +
-                `✨ Good news! We can make your custom piece!\n` +
-                `• Item: ${order.idea || "Custom Crochet Piece"}\n` +
-                `• Preferred Colors: ${order.colors || "Open to suggestions"}\n` +
-                `• Quoted Price: ₹${quotedPrice || "[Quote]"}\n` +
-                `• Crafting Timeline: ${estimatedDays}\n\n` +
-                `Please reply here if you'd like to confirm this order. We'll send easy UPI / Bank Transfer payment details to reserve your crafting slot! 💕`
-            );
-            const waAcceptUrl = customerPhone ? `https://wa.me/91${customerPhone}?text=${waAcceptText}` : `https://wa.me/?text=${waAcceptText}`;
-
-            // Format WhatsApp text for Decline
-            const declineReason = order.declineReason || "Workshop schedule currently fully booked";
-            const waDeclineText = encodeURIComponent(
-                `Hello ${customerName}! 🌸 Thank you so much for your custom crochet request (${order.id}) with Tangled.\n\n` +
-                `After reviewing our crafting schedule and pattern requirements, we are currently unable to make this piece:\n` +
-                `"${declineReason}"\n\n` +
-                `We are so sorry we could not take this on right now, but we would love to handcraft something else for you in the future! 🧶`
-            );
-            const waDeclineUrl = customerPhone ? `https://wa.me/91${customerPhone}?text=${waDeclineText}` : `https://wa.me/?text=${waDeclineText}`;
-
-            // Email URLs
+            // Acceptance Email URLs
             const customSubject = encodeURIComponent(`Custom Crochet Order ${order.id} - Tangled Quote`);
             const customBody = encodeURIComponent(
-                `Hello ${customerName}!` +
-                `\n\nThank you for your custom crochet request (${order.id}) with Tangled! 🧶\n\n` +
+                `Hello ${customerName}!\n\n` +
+                `Thank you for your custom crochet request (${order.id}) with Tangled! 🧶\n\n` +
                 `YOUR REQUEST:\n` +
-                `Idea: ${order.idea || "Custom Crochet Piece"}\n` +
-                `Preferred Colors: ${order.colors || "Open to suggestions"}\n\n` +
+                `• Idea: ${order.idea || "Custom Crochet Piece"}\n` +
+                `• Preferred Colors: ${order.colors || "Open to suggestions"}\n\n` +
                 `We'd love to craft this for you! Here is our quote and timeline:\n` +
                 `• Estimated Price: ₹${quotedPrice || "[Enter Amount]"}\n` +
                 `• Delivery Window: ${estimatedDays}\n` +
-                `• Payment Mode: Direct Email Chat (UPI / Bank Transfer)\n\n` +
+                `• Payment Mode: Direct Email Chat (UPI / QR Code / Bank Transfer)\n\n` +
                 `Please let us know if you'd like us to begin crafting!\n\nWarm regards,\nTangled Handmade Crochet`
             );
             const customComposeUrl = displayEmail
                 ? `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(displayEmail)}&su=${customSubject}&body=${customBody}`
                 : `mailto:?subject=${customSubject}&body=${customBody}`;
+
+            // Decline Email URLs
+            const declineReason = order.declineReason || "Workshop schedule currently fully booked";
+            const declineSubject = encodeURIComponent(`Custom Crochet Order ${order.id} Update - Tangled`);
+            const declineBody = encodeURIComponent(
+                `Hello ${customerName}!\n\n` +
+                `Thank you so much for your custom crochet request (${order.id}) with Tangled.\n\n` +
+                `After reviewing our crafting schedule and pattern requirements, we are currently unable to make this piece:\n` +
+                `"${declineReason}"\n\n` +
+                `We are so sorry we could not take this on right now, but we would love to handcraft something else for you in the future! 🧶\n\n` +
+                `Warm regards,\nTangled Handmade Crochet`
+            );
+            const customDeclineComposeUrl = displayEmail
+                ? `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(displayEmail)}&su=${declineSubject}&body=${declineBody}`
+                : `mailto:?subject=${declineSubject}&body=${declineBody}`;
 
             return `
                 <div class="order-card" id="card-${order.id}" style="border-left: 5px solid #8E44AD;">
@@ -1340,19 +1334,14 @@
                         <div class="detail-block">
                             <h4>Customer Contact</h4>
                             <p><strong>Name:</strong> ${customerName}</p>
-                            <p><strong>WhatsApp / Phone:</strong> <strong>${displayPhone}</strong></p>
+                            <p><strong>Phone:</strong> ${displayPhone !== 'N/A' ? displayPhone : 'Not provided'}</p>
                             ${displayEmail ? `<p><strong>Email:</strong> <a href="mailto:${displayEmail}">${displayEmail}</a></p>` : ""}
                             ${customer.neededBy ? `<p style="margin-top: 6px; color: #8E44AD; font-weight: bold;">🎯 Needed by: ${customer.neededBy}</p>` : ""}
 
                             <div style="display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;">
-                                ${customerPhone ? `
-                                    <a href="https://wa.me/91${customerPhone}" target="_blank" style="background: #25D366; color: white; text-decoration: none; padding: 5px 10px; border-radius: 6px; font-size: 11.5px; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">
-                                        💬 WhatsApp
-                                    </a>
-                                ` : ""}
                                 ${displayEmail ? `
-                                    <a href="mailto:${displayEmail}" style="background: #FAF7F0; border: 1px solid #C8B69E; color: #4A3E31; text-decoration: none; padding: 5px 10px; border-radius: 6px; font-size: 11.5px; font-weight: bold;">
-                                        ✉️ Email
+                                    <a href="${customComposeUrl}" target="_blank" style="background: #4E5D34; color: white; text-decoration: none; padding: 6px 12px; border-radius: 6px; font-size: 11.5px; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">
+                                        ✉️ Email Customer
                                     </a>
                                 ` : ""}
                             </div>
@@ -1422,11 +1411,8 @@
                                 Send quote message to customer to finalize payment and start crafting:
                             </p>
                             <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
-                                <a href="${waAcceptUrl}" target="_blank" style="background: #25D366; color: white; text-decoration: none; font-size: 12px; font-weight: bold; padding: 7px 14px; border-radius: 8px; display: inline-flex; align-items: center; gap: 5px;">
-                                    💬 WhatsApp Quote to Customer
-                                </a>
-                                <a href="${customComposeUrl}" target="_blank" style="background: #8E44AD; color: white; text-decoration: none; font-size: 12px; font-weight: bold; padding: 7px 14px; border-radius: 8px; display: inline-flex; align-items: center; gap: 5px;">
-                                    ✉️ Email Quote
+                                <a href="${customComposeUrl}" target="_blank" style="background: #4E5D34; color: white; text-decoration: none; font-size: 12px; font-weight: bold; padding: 8px 16px; border-radius: 8px; display: inline-flex; align-items: center; gap: 5px;">
+                                    ✉️ Email Quote to Customer
                                 </a>
                                 <button type="button" onclick="openAcceptModal('${order.id}')" style="background: #FAF7F0; border: 1px solid #C8B69E; color: #5A4632; font-size: 11.5px; padding: 6px 12px; border-radius: 6px; cursor: pointer;">
                                     ✏️ Edit Price Quote
@@ -1443,9 +1429,11 @@
                             </div>
                             <p style="font-size: 12.5px; color: #922B21; margin: 6px 0 10px;"><strong>Reason:</strong> ${order.declineReason || "Schedule or pattern difficulty"}</p>
                             <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                                <a href="${waDeclineUrl}" target="_blank" style="background: #7F8C8D; color: white; text-decoration: none; font-size: 11.5px; font-weight: bold; padding: 6px 12px; border-radius: 6px;">
-                                    💬 Send Polite Decline on WhatsApp
-                                </a>
+                                ${displayEmail ? `
+                                    <a href="${customDeclineComposeUrl}" target="_blank" style="background: #7F8C8D; color: white; text-decoration: none; font-size: 11.5px; font-weight: bold; padding: 6px 12px; border-radius: 6px; display: inline-flex; align-items: center; gap: 4px;">
+                                        ✉️ Email Polite Decline
+                                    </a>
+                                ` : ""}
                                 <button type="button" onclick="openAcceptModal('${order.id}')" style="background: #27AE60; color: white; border: none; font-size: 11.5px; font-weight: bold; padding: 6px 12px; border-radius: 6px; cursor: pointer;">
                                     ↩️ Re-evaluate & Accept Now
                                 </button>
@@ -1467,13 +1455,8 @@
                             </select>
                         </div>
                         <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
-                            ${customerPhone ? `
-                                <a href="https://wa.me/91${customerPhone}" target="_blank" class="action-btn" style="background: #25D366; font-size: 12px; padding: 7px 12px;">
-                                    💬 Chat WhatsApp
-                                </a>
-                            ` : ""}
                             ${displayEmail ? `
-                                <a href="${customComposeUrl}" target="_blank" class="action-btn" style="background: #8E44AD; font-size: 12px; padding: 7px 12px;">
+                                <a href="${customComposeUrl}" target="_blank" class="action-btn" style="background: #4E5D34; font-size: 12px; padding: 7px 14px;">
                                     ✉️ Chat Email
                                 </a>
                             ` : ""}
@@ -1558,21 +1541,25 @@
                     renderCustomOrders();
                     updateOrderCounters();
 
-                    const customerPhone = found && found.customer && (found.customer.phone || found.customer.contact) 
-                        ? (found.customer.phone || found.customer.contact).replace(/[^0-9]/g, "") 
-                        : "";
+                    const customerEmail = found && found.customer && found.customer.email ? found.customer.email : "";
 
-                    const waMsg = encodeURIComponent(
-                        `Hello ${found.customer.name || "there"}! 🧶 Tangled Handmade Crochet has reviewed your custom order request (${orderId}):\n\n` +
-                        `✨ Great news! We can make your custom piece!\n` +
+                    const emailSubject = encodeURIComponent(`Custom Crochet Order ${orderId} - Tangled Quote`);
+                    const emailBody = encodeURIComponent(
+                        `Hello ${found.customer.name || "there"}!\n\n` +
+                        `✨ Great news! Tangled Handmade Crochet has reviewed your custom order request (${orderId}):\n\n` +
                         `• Item: ${found.idea || "Custom Crochet Piece"}\n` +
+                        `• Preferred Colors: ${found.colors || "Open to suggestions"}\n` +
                         `• Quoted Price: ₹${quotedPrice}\n` +
                         `• Crafting Timeline: ${estimatedDays}\n\n` +
-                        `Please reply here if you'd like us to confirm and begin crafting! 💕`
+                        `Please reply to this email if you'd like to confirm and begin crafting! We will provide easy UPI / QR Code details to reserve your slot.\n\n` +
+                        `Warm regards,\nTangled Handmade Crochet`
                     );
+                    const emailUrl = customerEmail
+                        ? `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(customerEmail)}&su=${emailSubject}&body=${emailBody}`
+                        : `mailto:?subject=${emailSubject}&body=${emailBody}`;
 
-                    if (customerPhone && confirm(`✅ Order ${orderId} Accepted!\n\nQuoted Price: ₹${quotedPrice}\nTimeline: ${estimatedDays}\n\nWould you like to open WhatsApp now to send the quote directly to the customer?`)) {
-                        window.open(`https://wa.me/91${customerPhone}?text=${waMsg}`, "_blank");
+                    if (customerEmail && confirm(`✅ Order ${orderId} Accepted!\n\nQuoted Price: ₹${quotedPrice}\nTimeline: ${estimatedDays}\n\nWould you like to open your email client now to send the quote directly to ${customerEmail}?`)) {
+                        window.open(emailUrl, "_blank");
                     } else {
                         alert(`✅ Custom Order ${orderId} has been Accepted with quote ₹${quotedPrice}.`);
                     }
@@ -1650,19 +1637,23 @@
                     renderCustomOrders();
                     updateOrderCounters();
 
-                    const customerPhone = found && found.customer && (found.customer.phone || found.customer.contact) 
-                        ? (found.customer.phone || found.customer.contact).replace(/[^0-9]/g, "") 
-                        : "";
+                    const customerEmail = found && found.customer && found.customer.email ? found.customer.email : "";
 
-                    const waMsg = encodeURIComponent(
-                        `Hello ${found.customer.name || "there"}! 🌸 Thank you so much for your custom crochet request (${orderId}) with Tangled.\n\n` +
+                    const declineSubject = encodeURIComponent(`Custom Crochet Order ${orderId} Update - Tangled`);
+                    const declineBody = encodeURIComponent(
+                        `Hello ${found && found.customer ? (found.customer.name || "there") : "there"}!\n\n` +
+                        `Thank you so much for your custom crochet request (${orderId}) with Tangled.\n\n` +
                         `After reviewing our crafting schedule and pattern requirements, we are currently unable to make this piece:\n` +
                         `"${reason}"\n\n` +
-                        `We are so sorry we could not take this on right now, but we would love to handcraft something else for you in the future! 🧶`
+                        `We are so sorry we could not take this on right now, but we would love to handcraft something else for you in the future! 🧶\n\n` +
+                        `Warm regards,\nTangled Handmade Crochet`
                     );
+                    const declineEmailUrl = customerEmail
+                        ? `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(customerEmail)}&su=${declineSubject}&body=${declineBody}`
+                        : `mailto:?subject=${declineSubject}&body=${declineBody}`;
 
-                    if (customerPhone && confirm(`Custom order ${orderId} marked as Declined.\n\nWould you like to open WhatsApp to send a polite decline message to the customer?`)) {
-                        window.open(`https://wa.me/91${customerPhone}?text=${waMsg}`, "_blank");
+                    if (customerEmail && confirm(`Custom order ${orderId} marked as Declined.\n\nWould you like to open your email client now to send the update to ${customerEmail}?`)) {
+                        window.open(declineEmailUrl, "_blank");
                     } else {
                         alert(`Custom Order ${orderId} has been declined.`);
                     }

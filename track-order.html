@@ -239,13 +239,13 @@
             "Under Review": {
                 index: 0,
                 title: "⏳ Feasibility & Availability Review",
-                story: "Our artisan is currently examining your pattern design, stitch complexity, and workshop calendar. You will receive an availability confirmation and price quote via WhatsApp or Email within 24 hours!",
+                story: "Our artisan is currently examining your pattern design, stitch complexity, and workshop calendar. You will receive an availability confirmation and price quote via Email within 24 hours!",
                 percent: "15%"
             },
             "Accepted": {
                 index: 1,
                 title: "✅ Design Accepted — Quote Ready",
-                story: "Great news! We can make your custom piece! We have reserved your crafting slot. Please confirm payment via WhatsApp or Email to begin crafting.",
+                story: "Great news! We can make your custom piece! We have reserved your crafting slot. Please confirm payment via Email to begin crafting.",
                 percent: "35%"
             },
             "Declined": {
@@ -366,11 +366,11 @@
                                     <strong>Estimated Crafting Timeline:</strong> ${order.estimatedDays || "7–10 days"}
                                 </p>
                                 <a 
-                                    href="https://wa.me/919495841611?text=${encodeURIComponent("Hi Tangled! I would like to confirm my custom crochet order " + order.id + " (Quote: ₹" + (order.quotedPrice || "") + "). Please send payment details to begin crafting! 💕")}" 
+                                    href="https://mail.google.com/mail/?view=cm&fs=1&to=moonthread2026@gmail.com&su=${encodeURIComponent('Confirm Custom Order ' + order.id)}&body=${encodeURIComponent('Hi Tangled!\n\nI would like to confirm my custom crochet order ' + order.id + ' (Quote: ₹' + (order.quotedPrice || '') + ').\n\nPlease share payment details (UPI / QR Code) to begin crafting!\n\nThank you!')}" 
                                     target="_blank" 
-                                    style="display: inline-block; background: #25D366; color: white; text-decoration: none; padding: 8px 18px; border-radius: 20px; font-size: 13px; font-weight: bold;"
+                                    style="display: inline-block; background: #4E5D34; color: white; text-decoration: none; padding: 9px 20px; border-radius: 20px; font-size: 13px; font-weight: bold;"
                                 >
-                                    💬 Confirm Order on WhatsApp (+91 9495841611)
+                                    ✉️ Confirm Order via Email (moonthread2026@gmail.com)
                                 </a>
                             </div>
                         ` : ""}
@@ -449,7 +449,7 @@
                             <div>
                                 <h4 style="font-size: 13px; color: #7A6A58; text-transform: uppercase; margin-bottom: 8px;">Communication & Delivery</h4>
                                 <p style="font-size: 13px; color: #5A4632; line-height: 1.5; margin-bottom: 8px;">
-                                    💳 <strong>Payment:</strong> ${order.paymentMethod || "Direct WhatsApp / Email Chat"}
+                                    💳 <strong>Payment:</strong> ${order.paymentMethod || "Direct Email Chat (UPI / Bank Transfer)"}
                                     <span style="display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: bold; background: #EDF3E8; color: #2D5016; margin-left: 4px;">
                                         ${order.paymentStatus || 'Pending Availability Review'}
                                     </span>
@@ -459,18 +459,11 @@
                                 </p>
                                 <div style="display: flex; gap: 8px; flex-wrap: wrap;">
                                     <a 
-                                        href="https://wa.me/919495841611?text=${encodeURIComponent("Hi Tangled! I have a question regarding my order " + order.id)}" 
-                                        target="_blank" 
-                                        style="display: inline-block; background: #25D366; color: white; text-decoration: none; padding: 7px 14px; border-radius: 20px; font-size: 12.5px; font-weight: bold;"
-                                    >
-                                        💬 WhatsApp Tangled
-                                    </a>
-                                    <a 
                                         href="https://mail.google.com/mail/?view=cm&fs=1&to=moonthread2026@gmail.com&su=Question for Order ${order.id}" 
                                         target="_blank" 
-                                        style="display: inline-block; background: #6B7A4A; color: white; text-decoration: none; padding: 7px 14px; border-radius: 20px; font-size: 12.5px; font-weight: bold;"
+                                        style="display: inline-block; background: #4E5D34; color: white; text-decoration: none; padding: 8px 18px; border-radius: 20px; font-size: 12.5px; font-weight: bold;"
                                     >
-                                        ✉️ Email Tangled
+                                        ✉️ Email Tangled (moonthread2026@gmail.com)
                                     </a>
                                 </div>
                             </div>
