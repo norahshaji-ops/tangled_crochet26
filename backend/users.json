@@ -1,0 +1,16 @@
+[
+  {
+    "id": "usr_mw0g1o2z_iltid",
+    "name": "Norah Shaji",
+    "email": "norahshaji@gmail.com",
+    "phone": "9495841611",
+    "address": "Panayil House West Vengola",
+    "passwordHash": "52f4006fb82e40d4e4714b738acb29415733946e5ad2d58778fbdd5bb6f17809c9d7d983666f21fc36b5e285e747262ad4ec42fc4ed1fecdce87b576ceb53c50",
+    "passwordSalt": "3a6b3c60146dc9b116588ea90655281c",
+    "cart": [
+      "turtle-coaster"
+    ],
+    "wishlist": [],
+    "createdAt": "2026-11-03T08:46:36.587Z"
+  }
+]

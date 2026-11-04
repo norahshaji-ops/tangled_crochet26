@@ -1,0 +1,136 @@
+[
+  {
+    "id": "TGL-1001",
+    "createdAt": "2026-09-26T04:32:48.909Z",
+    "status": "Delivered",
+    "customer": {
+      "name": "CEEMOL SHAJI",
+      "phone": "9495841611",
+      "email": "norahshaji@gmail.com",
+      "address": "Panayil House West Vengola P.O Perumbavoor",
+      "note": ""
+    },
+    "items": {
+      "bee-keychain": 1,
+      "baby-romper": 1
+    },
+    "orderDetails": "Bee Keychain × 1 - ₹329\nBaby Romper × 1 - ₹799\n",
+    "total": 1128
+  },
+  {
+    "id": "CST-1001",
+    "userId": null,
+    "type": "custom",
+    "createdAt": "2026-11-03T12:18:06.581Z",
+    "status": "Accepted",
+    "paymentMethod": "Direct Email Chat (UPI / Bank Transfer)",
+    "paymentStatus": "Quote Sent (Pending Payment)",
+    "customer": {
+      "name": "Ananya Verma",
+      "contact": "ananya@example.com",
+      "phone": "9876543210",
+      "email": "ananya@example.com",
+      "address": "To be confirmed via DM / Email",
+      "note": "Colors: Lavender, Milk White, Butter Yellow | Needed by: 2026-11-20"
+    },
+    "items": {
+      "custom-piece": 1
+    },
+    "idea": "Pastel Lavender Daisy Cardigan with scalloped borders",
+    "colors": "Lavender, Milk White, Butter Yellow",
+    "neededBy": "2026-11-20",
+    "referenceImage": "images/custom/CST-1001.png",
+    "quotedPrice": 1250,
+    "estimatedDays": "10–14 days",
+    "declineReason": null,
+    "orderDetails": "🧶 CUSTOM CROCHET PIECE\nIdea: Pastel Lavender Daisy Cardigan with scalloped borders\nColors: Lavender, Milk White, Butter Yellow\nTarget Date: 2026-11-20",
+    "total": 1250
+  },
+  {
+    "id": "CST-1002",
+    "userId": null,
+    "type": "custom",
+    "createdAt": "2026-11-03T12:18:06.632Z",
+    "status": "Declined",
+    "paymentMethod": "Direct Email Chat (UPI / Bank Transfer)",
+    "paymentStatus": "Order Declined",
+    "customer": {
+      "name": "Rahul Sen",
+      "contact": "9123456780",
+      "phone": "9123456780",
+      "email": "",
+      "address": "To be confirmed via DM / Email",
+      "note": "Colors: Emerald Green | Needed by: Tomorrow"
+    },
+    "items": {
+      "custom-piece": 1
+    },
+    "idea": "Giant 6-foot Crochet Dragon Rug",
+    "colors": "Emerald Green",
+    "neededBy": "Tomorrow",
+    "referenceImage": "",
+    "quotedPrice": null,
+    "estimatedDays": null,
+    "declineReason": "Workshop crafting schedule is currently fully booked for your requested date",
+    "orderDetails": "🧶 CUSTOM CROCHET PIECE\nIdea: Giant 6-foot Crochet Dragon Rug\nColors: Emerald Green\nTarget Date: Tomorrow",
+    "total": "Awaiting Quote"
+  },
+  {
+    "id": "CST-1003",
+    "userId": null,
+    "type": "custom",
+    "createdAt": "2026-11-03T12:18:30.985Z",
+    "status": "Under Review",
+    "paymentMethod": "Direct WhatsApp / Email Chat",
+    "paymentStatus": "Pending Availability Review",
+    "customer": {
+      "name": "Meera Nair",
+      "contact": "9847123456",
+      "phone": "9847123456",
+      "email": "meera.crochet@gmail.com",
+      "address": "To be confirmed via DM / Email",
+      "note": "Colors: Oatmeal beige base with sunflower yellow & sage green | Needed by: Next weekend"
+    },
+    "items": {
+      "custom-piece": 1
+    },
+    "idea": "Sunflower & Daisy crochet tote bag with thick strap and matching keychain charm",
+    "colors": "Oatmeal beige base with sunflower yellow and sage green leaves",
+    "neededBy": "2026-11-15",
+    "referenceImage": "images/custom/CST-1001.png",
+    "quotedPrice": null,
+    "estimatedDays": null,
+    "declineReason": null,
+    "orderDetails": "🧶 CUSTOM CROCHET PIECE\nIdea: Sunflower & Daisy crochet tote bag with thick strap and matching keychain charm\nColors: Oatmeal beige base with sunflower yellow and sage green leaves\nTarget Date: 2026-11-15",
+    "total": "Awaiting Quote"
+  },
+  {
+    "id": "CST-1004",
+    "userId": "usr_mw0g1o2z_iltid",
+    "type": "custom",
+    "createdAt": "2026-11-03T12:30:22.174Z",
+    "status": "Under Review",
+    "paymentMethod": "Direct Email Chat (UPI / Bank Transfer)",
+    "paymentStatus": "Pending Availability Review",
+    "customer": {
+      "name": "Norah Shaji",
+      "contact": "9495841611",
+      "phone": "9495841611",
+      "email": "norahshaji@gmail.com",
+      "address": "To be confirmed via DM / Email",
+      "note": "Colors: green | Needed by: 2026-11-11"
+    },
+    "items": {
+      "custom-piece": 1
+    },
+    "idea": "lucky charm",
+    "colors": "green",
+    "neededBy": "2026-11-11",
+    "referenceImage": "",
+    "quotedPrice": null,
+    "estimatedDays": null,
+    "declineReason": null,
+    "orderDetails": "🧶 CUSTOM CROCHET PIECE\nIdea: lucky charm\nColors: green\nTarget Date: 2026-11-11",
+    "total": "Awaiting Quote"
+  }
+]

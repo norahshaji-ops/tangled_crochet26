@@ -1,0 +1,149 @@
+[
+  {
+    "id": "star-trinket-dish",
+    "name": "Star Trinket Dish",
+    "price": 399,
+    "description": "Handmade crochet star dish, perfect for keeping small jewelry and treasures.",
+    "image": "images/products/star-dish.jpg",
+    "images": [
+      "images/products/star-dish.jpg"
+    ],
+    "badge": "New",
+    "rating": "4.8",
+    "inStock": true
+  },
+  {
+    "id": "baby-romper",
+    "name": "Baby Romper",
+    "price": 799,
+    "description": "Soft handmade crochet baby romper, perfect for little ones.",
+    "image": "images/products/baby.jpg",
+    "images": [
+      "images/products/baby.jpg"
+    ],
+    "badge": "New",
+    "rating": "4.9",
+    "inStock": true
+  },
+  {
+    "id": "evileye-keychain",
+    "name": "Evil Eye Keychain",
+    "price": 99,
+    "description": "Handmade crochet evil eye keychain, a protective everyday accessory.",
+    "image": "images/products/evileye.jpg",
+    "images": [
+      "images/products/evileye.jpg",
+      "images/products/evil-eye-keychain.jpeg"
+    ],
+    "badge": "",
+    "rating": "4.8",
+    "inStock": true
+  },
+  {
+    "id": "lucky-charm",
+    "name": "Lucky Charm",
+    "price": 25,
+    "description": "A cute handmade crochet lucky charm, perfect for adding a little touch of joy and charm to your keys, bags, or everyday essentials.",
+    "image": "images/products/lucky-charm.jpeg",
+    "images": [
+      "images/products/lucky-charm.jpeg"
+    ],
+    "badge": "",
+    "rating": "4.9",
+    "inStock": true
+  },
+  {
+    "id": "turtle-coaster",
+    "name": "Turtle coaster",
+    "price": 199,
+    "description": "A cute handmade crochet turtle coaster that adds a playful touch to your coffee table while keeping your surfaces protected.",
+    "image": "images/products/turtle-coaster.jpeg",
+    "images": [
+      "images/products/turtle-coaster.jpeg"
+    ],
+    "badge": "",
+    "rating": "4.9",
+    "inStock": true
+  },
+  {
+    "id": "pencil-pouch",
+    "name": "Pencil Pouch",
+    "price": 349,
+    "description": "A cute handmade crochet pencil pouch, perfect for keeping your pens, pencils, and stationery essentials neatly organized.",
+    "image": "images/products/pencil-pouch.jpeg",
+    "images": [
+      "images/products/pencil-pouch.jpeg"
+    ],
+    "badge": "",
+    "rating": "4.9",
+    "inStock": true
+  },
+  {
+    "id": "evil-eye-keychain",
+    "name": "Evil Eye Keychain",
+    "price": 99,
+    "description": "A cute handmade crochet evil eye keychain, perfect for adding a charming touch to your keys, bags, or pouches.",
+    "image": "images/products/evil-eye-keychain.jpeg",
+    "images": [
+      "images/products/evil-eye-keychain.jpeg",
+      "images/products/evileye.jpg"
+    ],
+    "badge": "",
+    "rating": "4.9",
+    "inStock": true
+  },
+  {
+    "id": "flower-bouquet",
+    "name": "Flower Bouquet",
+    "price": 499,
+    "description": "A beautiful handmade crochet flower bouquet that adds a timeless touch of charm and makes a thoughtful gift for any occasion.",
+    "image": "images/products/flower-bouquet.jpeg",
+    "images": [
+      "images/products/flower-bouquet.jpeg",
+      "images/products/blanket-bouquet.jpeg"
+    ],
+    "badge": "",
+    "rating": "4.9",
+    "inStock": true
+  },
+  {
+    "id": "hair-clip-and-keychain",
+    "name": "hair clip and keychain",
+    "price": 139,
+    "description": "A cute handmade crochet hair clip that adds a simple, playful touch to any hairstyle.",
+    "image": "images/products/hair-clip-and-keychain.jpeg",
+    "images": [
+      "images/products/hair-clip-and-keychain.jpeg"
+    ],
+    "badge": "",
+    "rating": "4.9",
+    "inStock": true
+  },
+  {
+    "id": "blanket-bouquet",
+    "name": "Blanket Bouquet",
+    "price": 1099,
+    "description": "A unique handmade crochet blanket bouquet, beautifully combining soft flowers and a cozy blanket to make a thoughtful gift for any occasion.",
+    "image": "images/products/blanket-bouquet.jpeg",
+    "images": [
+      "images/products/blanket-bouquet.jpeg",
+      "images/products/flower-bouquet.jpeg"
+    ],
+    "badge": "Best Seller",
+    "rating": "4.9",
+    "inStock": true
+  },
+  {
+    "id": "barbie-reversible-crochet-bouquet",
+    "name": "Barbie reversible crochet bouquet",
+    "price": 450,
+    "description": "A fun Barbie-inspired reversible crochet bouquet that can be flipped and styled in two adorable ways, making it a unique gift for any occasion.",
+    "image": "images/products/barbie-reversible-crochet-bouquet.jpeg",
+    "images": [
+      "images/products/barbie-reversible-crochet-bouquet.jpeg"
+    ],
+    "badge": "",
+    "rating": "4.9",
+    "inStock": true
+  }
+]
