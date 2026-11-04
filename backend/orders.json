@@ -5,7 +5,7 @@
     "status": "Delivered",
     "customer": {
       "name": "CEEMOL SHAJI",
-      "phone": "9495841611",
+      "phone": "",
       "email": "norahshaji@gmail.com",
       "address": "Panayil House West Vengola P.O Perumbavoor",
       "note": ""
@@ -81,7 +81,7 @@
     "type": "custom",
     "createdAt": "2026-11-03T12:18:30.985Z",
     "status": "Under Review",
-    "paymentMethod": "Direct WhatsApp / Email Chat",
+    "paymentMethod": "Direct Email Chat (UPI / Bank Transfer)",
     "paymentStatus": "Pending Availability Review",
     "customer": {
       "name": "Meera Nair",
@@ -114,8 +114,8 @@
     "paymentStatus": "Pending Availability Review",
     "customer": {
       "name": "Norah Shaji",
-      "contact": "9495841611",
-      "phone": "9495841611",
+      "contact": "norahshaji@gmail.com",
+      "phone": "",
       "email": "norahshaji@gmail.com",
       "address": "To be confirmed via DM / Email",
       "note": "Colors: green | Needed by: 2026-11-11"
