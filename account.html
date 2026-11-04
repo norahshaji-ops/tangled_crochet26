@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account | Tangled Crochet</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo/logo.png">
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+    <header>
+                <nav class="main-navbar">
+
+            <!-- Logo -->
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo/logo.png" alt="Tangled Logo">
+                    <div class="logo-text">
+                        <h2>Tangled</h2>
+                        <p>CROCHET CREATIONS</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Navigation Links (Center) -->
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#products">Shop</a></li>
+                <li><a href="index.html#custom-orders">Custom Orders</a></li>
+                <li><a href="index.html#about">Our Story</a></li>
+                <li><a href="index.html#reviews">Reviews</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+
+            <!-- Utility Action Toolbar (Right) -->
+            <div class="nav-actions">
+                <a href="track-order.html" class="nav-action-link nav-track-link" title="Track Your Order">
+                    <span>📍 Track</span>
+                </a>
+                <a href="wishlist.html" class="nav-action-link nav-icon-badge-btn" id="wishlist-link" title="Saved Wishlist">
+                    <span class="action-icon">🤍</span>
+                    <span class="nav-badge" id="wishlist-count">0</span>
+                </a>
+                <a href="cart.html" class="nav-action-link nav-icon-badge-btn" id="cart-link" title="Shopping Cart">
+                    <span class="action-icon">🛒</span>
+                    <span class="nav-badge" id="cart-count">0</span>
+                </a>
+                <div class="nav-auth-wrapper" id="nav-auth-item">
+                    <a href="login.html" class="nav-auth-btn" id="auth-nav-link" title="Sign In or Account">
+                        <span class="auth-icon">👤</span>
+                        <span class="auth-text">Sign In</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mobile Hamburger Toggle -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu" type="button">
+                ☰
+            </button>
+
+        </nav>
+
+        <!-- Mobile Navigation Drawer -->
+        <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+            <div class="mobile-nav-header">
+                <span class="mobile-nav-title">Menu</span>
+                <button type="button" class="mobile-close-btn" id="mobile-menu-close" aria-label="Close menu">&times;</button>
+            </div>
+            <ul class="mobile-nav-links">
+                <li><a href="index.html">🏠 Home</a></li>
+                <li><a href="index.html#products">🛍️ Shop Creations</a></li>
+                <li><a href="index.html#custom-orders">🧶 Custom Orders</a></li>
+                <li><a href="track-order.html">📍 Track Order</a></li>
+                <li><a href="wishlist.html">🤍 Wishlist (<span id="mobile-wishlist-count">0</span>)</a></li>
+                <li><a href="cart.html">🛒 Cart (<span id="mobile-cart-count">0</span>)</a></li>
+                <li id="mobile-nav-auth-item"><a href="account.html" id="mobile-auth-nav-link">👤 My Account</a></li>
+                <li><a href="index.html#about">📖 Our Story</a></li>
+                <li><a href="index.html#reviews">⭐ Customer Reviews</a></li>
+                <li><a href="index.html#contact">📬 Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- =========================
+         ACCOUNT DASHBOARD
+    ========================== -->
+    <main class="account-dashboard-wrapper">
+
+        <!-- LOGGED-OUT PROMPT (if user visits directly while signed out) -->
+        <div id="auth-required-box" style="display: none; text-align: center; background: #FFFFFF; border-radius: 20px; border: 1px solid #E5DCCF; padding: 50px 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); max-width: 500px; margin: 40px auto;">
+            <span style="font-size: 48px; display: block; margin-bottom: 12px;">🧶</span>
+            <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 32px; color: #2D3A1E; margin-bottom: 10px;">Please Sign In</h2>
+            <p style="color: #6B5B4D; font-size: 15px; margin-bottom: 25px; line-height: 1.5;">
+                Sign in to view your orders, saved delivery addresses, and synced crochet cart.
+            </p>
+            <a href="login.html" class="auth-btn-primary" style="display: inline-block; text-decoration: none; max-width: 240px;">
+                Sign In or Register 💕
+            </a>
+        </div>
+
+        <!-- LOGGED-IN CONTAINER -->
+        <div id="account-main-content" style="display: none;">
+
+            <!-- Hero Banner -->
+            <div class="account-hero-card">
+                <div class="account-user-info">
+                    <div class="account-avatar-circle" id="user-avatar-initial">T</div>
+                    <div class="account-user-meta">
+                        <h1 id="user-display-name">Welcome Back</h1>
+                        <p id="user-display-email">customer@tangled.com</p>
+                    </div>
+                </div>
+                <div class="account-hero-actions">
+                    <button type="button" class="account-logout-btn" id="logout-btn">
+                        🚪 Log Out
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tab Navigation -->
+            <div class="account-tabs-nav" role="tablist">
+                <button type="button" class="account-nav-btn active" id="tab-orders-btn">
+                    📦 My Orders (<span id="user-orders-count">0</span>)
+                </button>
+                <button type="button" class="account-nav-btn" id="tab-profile-btn">
+                    👤 Profile & Delivery Address
+                </button>
+                <button type="button" class="account-nav-btn" id="tab-collections-btn">
+                    🧶 Saved Wishlist & Cart
+                </button>
+            </div>
+
+            <!-- TAB 1: MY ORDERS -->
+            <div class="account-tab-content active" id="tab-orders-content">
+                <div class="account-orders-list" id="account-orders-container">
+                    <div style="text-align: center; padding: 40px; color: #7A6F62;">
+                        <span style="font-size: 28px;">⏳</span>
+                        <p style="margin-top: 10px;">Loading your handcrafted orders...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: PROFILE & ADDRESS -->
+            <div class="account-tab-content" id="tab-profile-content">
+                <div class="account-profile-card">
+                    <h2>Edit Your Details</h2>
+                    <div class="auth-alert" id="profile-alert" role="alert"></div>
+
+                    <form id="profile-form">
+                        <div class="auth-field">
+                            <label for="profile-name">Full Name</label>
+                            <div class="auth-input-group">
+                                <input type="text" id="profile-name" required>
+                            </div>
+                        </div>
+
+                        <div class="auth-field">
+                            <label for="profile-email">Email Address</label>
+                            <div class="auth-input-group">
+                                <input type="email" id="profile-email" disabled style="background: #EFEBE4; cursor: not-allowed;" title="Email address cannot be changed">
+                            </div>
+                            <small style="color: #8C7B6B; font-size: 12px; margin-top: 4px; display: block;">
+                                Order confirmations and payment chat are linked to this email.
+                            </small>
+                        </div>
+
+                        <div class="auth-field">
+                            <label for="profile-phone">Phone Number</label>
+                            <div class="auth-input-group">
+                                <input type="tel" id="profile-phone" placeholder="Enter mobile number">
+                            </div>
+                        </div>
+
+                        <div class="auth-field">
+                            <label for="profile-address">Default Delivery Address</label>
+                            <div class="auth-input-group">
+                                <textarea id="profile-address" rows="4" placeholder="Enter complete delivery address for quick checkout"></textarea>
+                            </div>
+                        </div>
+
+                        <div style="margin: 25px 0 15px; border-top: 1px dashed #E5DCCF; padding-top: 15px;">
+                            <h3 style="font-size: 16px; color: #4E5D34; margin-bottom: 12px;">Change Password (Optional)</h3>
+                            <div class="auth-field">
+                                <label for="profile-current-pwd">Current Password</label>
+                                <div class="auth-input-group">
+                                    <input type="password" id="profile-current-pwd" placeholder="Leave empty if not changing">
+                                </div>
+                            </div>
+                            <div class="auth-field">
+                                <label for="profile-new-pwd">New Password</label>
+                                <div class="auth-input-group">
+                                    <input type="password" id="profile-new-pwd" placeholder="Minimum 6 characters">
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="auth-btn-primary" id="save-profile-btn" style="max-width: 250px;">
+                            Save Profile Changes 💕
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- TAB 3: SAVED WISHLIST & CART -->
+            <div class="account-tab-content" id="tab-collections-content">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                    <!-- Wishlist Box -->
+                    <div style="background: #FFFFFF; border: 1px solid #E5DCCF; border-radius: 16px; padding: 26px; box-shadow: 0 4px 16px rgba(0,0,0,0.04);">
+                        <span style="font-size: 36px; display: block; margin-bottom: 8px;">🤍</span>
+                        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #2D3A1E; margin-bottom: 6px;">Your Wishlist</h3>
+                        <p style="color: #6B5B4D; font-size: 14px; margin-bottom: 18px;">
+                            Keep track of all your favorite handcrafted crochet pieces and flower bouquets.
+                        </p>
+                        <a href="wishlist.html" class="auth-btn-primary" style="display: inline-block; text-decoration: none; text-align: center; width: auto; padding: 10px 20px;">
+                            View Saved Wishlist →
+                        </a>
+                    </div>
+
+                    <!-- Cart Box -->
+                    <div style="background: #FFFFFF; border: 1px solid #E5DCCF; border-radius: 16px; padding: 26px; box-shadow: 0 4px 16px rgba(0,0,0,0.04);">
+                        <span style="font-size: 36px; display: block; margin-bottom: 8px;">🛒</span>
+                        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #2D3A1E; margin-bottom: 6px;">Your Cart</h3>
+                        <p style="color: #6B5B4D; font-size: 14px; margin-bottom: 18px;">
+                            Ready to order? Review your basket and proceed to checkout with direct email chat payments.
+                        </p>
+                        <a href="cart.html" class="auth-btn-primary" style="display: inline-block; text-decoration: none; text-align: center; width: auto; padding: 10px 20px;">
+                            Open Cart →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- ==========================================
+         FLOATING AESTHETIC MOBILE NAVIGATION DOCK
+    ========================================== -->
+    <nav class="mobile-bottom-bar" aria-label="Mobile Navigation">
+        <a href="index.html" class="mobile-bottom-link ">
+            <span class="bottom-icon-wrapper">
+                <svg class="bottom-nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 10.5L12 3l9 7.5"/>
+                    <path d="M5 9.5V20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5"/>
+                    <path d="M9 21v-6a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v6"/>
+                </svg>
+            </span>
+            <span class="bottom-label">Home</span>
+        </a>
+        <a href="index.html#products" class="mobile-bottom-link ">
+            <span class="bottom-icon-wrapper">
+                <svg class="bottom-nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <path d="M16 10a4 4 0 0 1-8 0"/>
+                </svg>
+            </span>
+            <span class="bottom-label">Shop</span>
+        </a>
+        <a href="wishlist.html" class="mobile-bottom-link ">
+            <span class="bottom-icon-wrapper">
+                <svg class="bottom-nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+                <span class="bottom-badge" id="bottom-wishlist-badge" style="display: none;">0</span>
+            </span>
+            <span class="bottom-label">Wishlist</span>
+        </a>
+        <a href="cart.html" class="mobile-bottom-link ">
+            <span class="bottom-icon-wrapper">
+                <svg class="bottom-nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"/>
+                    <circle cx="20" cy="21" r="1"/>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                </svg>
+                <span class="bottom-badge" id="bottom-cart-badge" style="display: none;">0</span>
+            </span>
+            <span class="bottom-label">Cart</span>
+        </a>
+        <a href="track-order.html" class="mobile-bottom-link ">
+            <span class="bottom-icon-wrapper">
+                <svg class="bottom-nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                </svg>
+            </span>
+            <span class="bottom-label">Track</span>
+        </a>
+        <a href="login.html" class="mobile-bottom-link active" id="bottom-auth-link">
+            <span class="bottom-icon-wrapper">
+                <svg class="bottom-nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                </svg>
+            </span>
+            <span class="bottom-label">Account</span>
+        </a>
+    </nav>
+
+    <!-- Global JS -->
+    <script src="./js/script.js"></script>
+
+    <!-- Page Specific Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const authRequiredBox = document.getElementById("auth-required-box");
+            const accountMainContent = document.getElementById("account-main-content");
+            const logoutBtn = document.getElementById("logout-btn");
+
+            // Check logged in user
+            let currentUser = null;
+            const rawUser = localStorage.getItem("tangled_user");
+            if (rawUser) {
+                try {
+                    currentUser = JSON.parse(rawUser);
+                } catch(e) {
+                    currentUser = null;
+                }
+            }
+
+            if (!currentUser || !currentUser.id) {
+                authRequiredBox.style.display = "block";
+                accountMainContent.style.display = "none";
+                return;
+            }
+
+            // User is logged in
+            authRequiredBox.style.display = "none";
+            accountMainContent.style.display = "block";
+
+            // Render User Header
+            const initial = (currentUser.name || "C").trim().charAt(0).toUpperCase();
+            document.getElementById("user-avatar-initial").textContent = initial;
+            document.getElementById("user-display-name").textContent = `Hello, ${currentUser.name || "Valued Customer"}! 🧶`;
+            document.getElementById("user-display-email").textContent = `${currentUser.email || ""} ${currentUser.phone ? "• " + currentUser.phone : ""}`;
+
+            // Pre-fill profile form
+            document.getElementById("profile-name").value = currentUser.name || "";
+            document.getElementById("profile-email").value = currentUser.email || "";
+            document.getElementById("profile-phone").value = currentUser.phone || "";
+            document.getElementById("profile-address").value = currentUser.address || "";
+
+            // Tab Switching
+            const tabOrdersBtn = document.getElementById("tab-orders-btn");
+            const tabProfileBtn = document.getElementById("tab-profile-btn");
+            const tabCollectionsBtn = document.getElementById("tab-collections-btn");
+
+            const tabOrdersContent = document.getElementById("tab-orders-content");
+            const tabProfileContent = document.getElementById("tab-profile-content");
+            const tabCollectionsContent = document.getElementById("tab-collections-content");
+
+            function switchTab(btn, content) {
+                [tabOrdersBtn, tabProfileBtn, tabCollectionsBtn].forEach(b => b.classList.remove("active"));
+                [tabOrdersContent, tabProfileContent, tabCollectionsContent].forEach(c => c.classList.remove("active"));
+                btn.classList.add("active");
+                content.classList.add("active");
+            }
+
+            tabOrdersBtn.addEventListener("click", () => switchTab(tabOrdersBtn, tabOrdersContent));
+            tabProfileBtn.addEventListener("click", () => switchTab(tabProfileBtn, tabProfileContent));
+            tabCollectionsBtn.addEventListener("click", () => switchTab(tabCollectionsBtn, tabCollectionsContent));
+
+            // Load Orders
+            async function loadCustomerOrders() {
+                const container = document.getElementById("account-orders-container");
+                const countBadge = document.getElementById("user-orders-count");
+
+                try {
+                    const res = await fetch(`/api/users/${currentUser.id}/orders`);
+                    const data = await res.json();
+
+                    if (!data.success || !Array.isArray(data.orders) || data.orders.length === 0) {
+                        countBadge.textContent = "0";
+                        container.innerHTML = `
+                            <div style="text-align: center; background: #FFFFFF; border-radius: 16px; border: 1px dashed #E5DCCF; padding: 45px 20px;">
+                                <span style="font-size: 42px; display: block; margin-bottom: 10px;">🛍️</span>
+                                <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 26px; color: #2D3A1E; margin-bottom: 8px;">No Orders Placed Yet</h3>
+                                <p style="color: #7A6F62; font-size: 14px; max-width: 400px; margin: 0 auto 20px;">
+                                    When you place an order, it will appear here so you can track its handcrafted progress from yarn to delivery!
+                                </p>
+                                <a href="index.html#products" class="auth-btn-primary" style="display: inline-block; text-decoration: none; width: auto; padding: 10px 24px;">
+                                    Explore Crochet Creations 🧶
+                                </a>
+                            </div>
+                        `;
+                        return;
+                    }
+
+                    countBadge.textContent = data.orders.length;
+                    container.innerHTML = data.orders.map(order => {
+                        const isCustom = order.type === "custom" || (order.id && order.id.startsWith("CST-"));
+                        const dateStr = order.createdAt ? new Date(order.createdAt).toLocaleDateString("en-IN", {
+                            day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit"
+                        }) : "Recent Order";
+
+                        const rawStatus = order.status || (isCustom ? "Under Review" : "Pending");
+                        const status = rawStatus.toLowerCase();
+                        let statusClass = "status-pending";
+                        if (status.includes("review")) statusClass = "status-under-review";
+                        else if (status === "accepted") statusClass = "status-accepted";
+                        else if (status === "declined") statusClass = "status-declined";
+                        else if (status === "confirmed") statusClass = "status-confirmed";
+                        else if (status === "making") statusClass = "status-making";
+                        else if (status === "ready") statusClass = "status-ready";
+                        else if (status === "delivered") statusClass = "status-delivered";
+
+                        const isPaid = (order.paymentStatus || "").toLowerCase().includes("received") || (order.paymentStatus || "").toLowerCase().includes("paid");
+                        const paymentClass = isPaid ? "payment-pill paid" : "payment-pill";
+
+                        const displayTotal = isCustom 
+                            ? (order.quotedPrice ? "₹" + order.quotedPrice : (typeof order.total === "number" ? "₹" + order.total : (order.total || "Awaiting Quote")))
+                            : "₹" + (order.total || 0);
+
+                        const emailSubject = encodeURIComponent(`Inquiry regarding Order ${order.id} - ${currentUser.name}`);
+                        const emailBody = encodeURIComponent(`Hello Tangled Team,\n\nI have a question about my order ${order.id}.\n\nThank you,\n${currentUser.name}`);
+
+                        return `
+                            <div class="account-order-card">
+                                <div class="account-order-top">
+                                    <div class="account-order-id-group">
+                                        <span class="account-order-id">#${order.id}</span>
+                                        ${isCustom ? '<span style="font-size: 11.5px; background: #F5EEF8; color: #8E44AD; padding: 2px 8px; border-radius: 6px; font-weight: bold; margin-left: 6px;">🎨 Custom Request</span>' : ''}
+                                        <span class="account-order-date">Placed on ${dateStr}</span>
+                                    </div>
+                                    <div class="account-badge-group">
+                                        <span class="status-pill ${statusClass}">${rawStatus}</span>
+                                        <span class="${paymentClass}">💳 ${order.paymentStatus || (isCustom ? "Pending Availability Review" : "Pending Email Chat")}</span>
+                                    </div>
+                                </div>
+                                <div class="account-order-body">
+                                    <div style="display: flex; gap: 12px; align-items: flex-start;">
+                                        ${order.referenceImage ? `
+                                            <img src="${order.referenceImage}" alt="Reference Photo" style="width: 55px; height: 55px; object-fit: cover; border-radius: 6px; border: 1px solid #D8C5A8; flex-shrink: 0;">
+                                        ` : ''}
+                                        <div style="flex-grow: 1;">
+                                            <div class="account-order-items">${order.orderDetails || "Handcrafted Crochet Item"}</div>
+                                            ${isCustom && order.status === "Accepted" ? `
+                                                <div style="font-size: 12.5px; color: #1E8449; font-weight: bold; margin-top: 4px;">
+                                                    🎉 Request Accepted! Timeline: ${order.estimatedDays || "7–10 days"}
+                                                </div>
+                                            ` : ''}
+                                            ${isCustom && order.status === "Declined" ? `
+                                                <div style="font-size: 12.5px; color: #922B21; margin-top: 4px;">
+                                                    Unavailable: ${order.declineReason || "Schedule fully booked"}
+                                                </div>
+                                            ` : ''}
+                                            ${order.customer && order.customer.address ? `
+                                                <div style="font-size: 13px; color: #7A6F62; margin-top: 6px;">
+                                                    📍 <strong>Delivery Address:</strong> ${order.customer.address}
+                                                </div>
+                                            ` : ""}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="account-order-footer">
+                                    <div class="account-order-total">
+                                        Total: <strong>${displayTotal}</strong>
+                                    </div>
+                                    <div class="account-order-btns">
+                                        <a href="track-order.html?id=${order.id}" class="account-track-link">
+                                            📍 Real-Time Tracking
+                                        </a>
+                                        <a href="mailto:moonthread2026@gmail.com?subject=${emailSubject}&body=${emailBody}" class="account-email-link">
+                                            💬 Email Tangled
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }).join("");     } catch (err) {
+                    console.error("Error fetching orders:", err);
+                    container.innerHTML = `
+                        <div style="text-align: center; padding: 30px; color: #9A2C18;">
+                            Unable to load orders right now. Please check if the Tangled backend server is active.
+                        </div>
+                    `;
+                }
+            }
+
+            loadCustomerOrders();
+
+            // Save Profile Form
+            const profileForm = document.getElementById("profile-form");
+            const profileAlert = document.getElementById("profile-alert");
+
+            profileForm.addEventListener("submit", async function(e) {
+                e.preventDefault();
+                profileAlert.style.display = "none";
+
+                const saveBtn = document.getElementById("save-profile-btn");
+                saveBtn.disabled = true;
+                saveBtn.textContent = "Saving Changes... ⏳";
+
+                const name = document.getElementById("profile-name").value.trim();
+                const phone = document.getElementById("profile-phone").value.trim();
+                const address = document.getElementById("profile-address").value.trim();
+                const currentPassword = document.getElementById("profile-current-pwd").value;
+                const newPassword = document.getElementById("profile-new-pwd").value;
+
+                try {
+                    const res = await fetch(`/api/users/${currentUser.id}`, {
+                        method: "PUT",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ name, phone, address, currentPassword, newPassword })
+                    });
+                    const data = await res.json();
+
+                    if (!res.ok || !data.success) {
+                        profileAlert.className = "auth-alert error";
+                        profileAlert.textContent = data.message || "Failed to update profile.";
+                        profileAlert.style.display = "block";
+                        saveBtn.disabled = false;
+                        saveBtn.textContent = "Save Profile Changes 💕";
+                        return;
+                    }
+
+                    // Update local storage
+                    currentUser = data.user;
+                    localStorage.setItem("tangled_user", JSON.stringify(currentUser));
+
+                    profileAlert.className = "auth-alert success";
+                    profileAlert.textContent = "Your profile and delivery details have been saved successfully! 💕";
+                    profileAlert.style.display = "block";
+
+                    document.getElementById("user-display-name").textContent = `Hello, ${currentUser.name}! 🧶`;
+                    document.getElementById("user-display-email").textContent = `${currentUser.email || ""} ${currentUser.phone ? "• " + currentUser.phone : ""}`;
+
+                    document.getElementById("profile-current-pwd").value = "";
+                    document.getElementById("profile-new-pwd").value = "";
+
+                    saveBtn.disabled = false;
+                    saveBtn.textContent = "Save Profile Changes 💕";
+                } catch (err) {
+                    console.error("Profile save error:", err);
+                    profileAlert.className = "auth-alert error";
+                    profileAlert.textContent = "Unable to connect to Tangled server.";
+                    profileAlert.style.display = "block";
+                    saveBtn.disabled = false;
+                    saveBtn.textContent = "Save Profile Changes 💕";
+                }
+            });
+
+            // Log Out Button
+            logoutBtn.addEventListener("click", function() {
+                if (confirm("Are you sure you want to log out of your Tangled account?")) {
+                    localStorage.removeItem("tangled_user");
+                    window.location.href = "index.html";
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

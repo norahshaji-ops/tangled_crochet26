@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In / Register | Tangled Crochet</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo/logo.png">
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+    <header>
+                <nav class="main-navbar">
+
+            <!-- Logo -->
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo/logo.png" alt="Tangled Logo">
+                    <div class="logo-text">
+                        <h2>Tangled</h2>
+                        <p>CROCHET CREATIONS</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Navigation Links (Center) -->
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#products">Shop</a></li>
+                <li><a href="index.html#custom-orders">Custom Orders</a></li>
+                <li><a href="index.html#about">Our Story</a></li>
+                <li><a href="index.html#reviews">Reviews</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+
+            <!-- Utility Action Toolbar (Right) -->
+            <div class="nav-actions">
+                <a href="track-order.html" class="nav-action-link nav-track-link" title="Track Your Order">
+                    <span>📍 Track</span>
+                </a>
+                <a href="wishlist.html" class="nav-action-link nav-icon-badge-btn" id="wishlist-link" title="Saved Wishlist">
+                    <span class="action-icon">🤍</span>
+                    <span class="nav-badge" id="wishlist-count">0</span>
+                </a>
+                <a href="cart.html" class="nav-action-link nav-icon-badge-btn" id="cart-link" title="Shopping Cart">
+                    <span class="action-icon">🛒</span>
+                    <span class="nav-badge" id="cart-count">0</span>
+                </a>
+                <div class="nav-auth-wrapper" id="nav-auth-item">
+                    <a href="login.html" class="nav-auth-btn" id="auth-nav-link" title="Sign In or Account">
+                        <span class="auth-icon">👤</span>
+                        <span class="auth-text">Sign In</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mobile Hamburger Toggle -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu" type="button">
+                ☰
+            </button>
+
+        </nav>
+
+        <!-- Mobile Navigation Drawer -->
+        <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+            <div class="mobile-nav-header">
+                <span class="mobile-nav-title">Menu</span>
+                <button type="button" class="mobile-close-btn" id="mobile-menu-close" aria-label="Close menu">&times;</button>
+            </div>
+            <ul class="mobile-nav-links">
+                <li><a href="index.html">🏠 Home</a></li>
+                <li><a href="index.html#products">🛍️ Shop Creations</a></li>
+                <li><a href="index.html#custom-orders">🧶 Custom Orders</a></li>
+                <li><a href="track-order.html">📍 Track Order</a></li>
+                <li><a href="wishlist.html">🤍 Wishlist (<span id="mobile-wishlist-count">0</span>)</a></li>
+                <li><a href="cart.html">🛒 Cart (<span id="mobile-cart-count">0</span>)</a></li>
+                <li id="mobile-nav-auth-item"><a href="login.html" id="mobile-auth-nav-link">👤 Sign In / Account</a></li>
+                <li><a href="index.html#about">📖 Our Story</a></li>
+                <li><a href="index.html#reviews">⭐ Customer Reviews</a></li>
+                <li><a href="index.html#contact">📬 Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- =========================
+         MAIN AUTH CONTAINER
+    ========================== -->
+    <main class="auth-page-wrapper">
+
+        <div class="auth-card">
+
+            <!-- Card Header -->
+            <div class="auth-header">
+                <span class="auth-header-icon">🧶</span>
+                <h1 id="auth-header-title">Welcome to Tangled</h1>
+                <p id="auth-header-subtitle">Sign in to view your orders, sync your cart, and track handcrafted creations.</p>
+            </div>
+
+            <!-- Tabs -->
+            <div class="auth-tabs" role="tablist">
+                <button type="button" class="auth-tab-btn active" id="tab-login-btn">
+                    Sign In
+                </button>
+                <button type="button" class="auth-tab-btn" id="tab-signup-btn">
+                    Create Account
+                </button>
+            </div>
+
+            <div class="auth-body">
+
+                <!-- Alert Message -->
+                <div class="auth-alert" id="auth-alert" role="alert"></div>
+
+                <!-- SIGN IN FORM -->
+                <form class="auth-form active" id="login-form">
+
+                    <div class="auth-field">
+                        <label for="login-identifier">Email or Phone Number</label>
+                        <div class="auth-input-group">
+                            <input
+                                type="text"
+                                id="login-identifier"
+                                placeholder="name@example.com or 9876543210"
+                                required
+                                autocomplete="username"
+                            >
+                        </div>
+                    </div>
+
+                    <div class="auth-field">
+                        <label for="login-password">Password</label>
+                        <div class="auth-input-group">
+                            <input
+                                type="password"
+                                id="login-password"
+                                placeholder="Enter your password"
+                                required
+                                autocomplete="current-password"
+                            >
+                            <button type="button" class="password-toggle-btn" id="toggle-login-pwd" aria-label="Show password">👁️</button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="auth-btn-primary" id="login-submit-btn">
+                        Sign In 💕
+                    </button>
+
+                    <div class="auth-footer-help">
+                        <p>Don't have an account yet? <a href="#" id="switch-to-signup">Create one now</a></p>
+                    </div>
+
+                </form>
+
+                <!-- SIGN UP FORM -->
+                <form class="auth-form" id="signup-form">
+
+                    <div class="auth-field">
+                        <label for="signup-name">Full Name *</label>
+                        <div class="auth-input-group">
+                            <input
+                                type="text"
+                                id="signup-name"
+                                placeholder="e.g. Norah Shaji"
+                                required
+                                autocomplete="name"
+                            >
+                        </div>
+                    </div>
+
+                    <div class="auth-field">
+                        <label for="signup-email">Email Address *</label>
+                        <div class="auth-input-group">
+                            <input
+                                type="email"
+                                id="signup-email"
+                                placeholder="name@example.com"
+                                required
+                                autocomplete="email"
+                            >
+                        </div>
+                        <small style="color: #8C7B6B; font-size: 12px; margin-top: 4px; display: block;">
+                            Used for order confirmations and payment chat.
+                        </small>
+                    </div>
+
+                    <div class="auth-field">
+                        <label for="signup-phone">Phone Number</label>
+                        <div class="auth-input-group">
+                            <input
+                                type="tel"
+                                id="signup-phone"
+                                placeholder="10-digit mobile number"
+                                autocomplete="tel"
+                            >
+                        </div>
+                    </div>
+
+                    <div class="auth-field">
+                        <label for="signup-address">Default Delivery Address (Optional)</label>
+                        <div class="auth-input-group">
+                            <textarea
+                                id="signup-address"
+                                placeholder="House name / Flat, Street, City, Pincode"
+                                rows="3"
+                                autocomplete="street-address"
+                            ></textarea>
+                        </div>
+                    </div>
+
+                    <div class="auth-field">
+                        <label for="signup-password">Create Password *</label>
+                        <div class="auth-input-group">
+                            <input
+                                type="password"
+                                id="signup-password"
+                                placeholder="At least 6 characters"
+                                required
+                                minlength="6"
+                                autocomplete="new-password"
+                            >
+                            <button type="button" class="password-toggle-btn" id="toggle-signup-pwd" aria-label="Show password">👁️</button>
+                        </div>
+                    </div>
+
+                    <div class="auth-field">
+                        <label for="signup-password-confirm">Confirm Password *</label>
+                        <div class="auth-input-group">
+                            <input
+                                type="password"
+                                id="signup-password-confirm"
+                                placeholder="Re-enter your password"
+                                required
+                                minlength="6"
+                                autocomplete="new-password"
+                            >
+                        </div>
+                    </div>
+
+                    <button type="submit" class="auth-btn-primary" id="signup-submit-btn">
+                        Create Account & Sync Cart 🧶
+                    </button>
+
+                    <div class="auth-footer-help">
+                        <p>Already have an account? <a href="#" id="switch-to-login">Sign in here</a></p>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- ==========================================
+         FLOATING AESTHETIC MOBILE NAVIGATION DOCK
+    ========================================== -->
+    <nav class="mobile-bottom-bar" aria-label="Mobile Navigation">
+        <a href="index.html" class="mobile-bottom-link ">
+            <span class="bottom-icon-wrapper">
+                <svg class="bottom-nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 10.5L12 3l9 7.5"/>
+                    <path d="M5 9.5V20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5"/>
+                    <path d="M9 21v-6a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v6"/>
+                </svg>
+            </span>
+            <span class="bottom-label">Home</span>
+        </a>
+        <a href="index.html#products" class="mobile-bottom-link ">
+            <span class="bottom-icon-wrapper">
+                <svg class="bottom-nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <path d="M16 10a4 4 0 0 1-8 0"/>
+                </svg>
+            </span>
+            <span class="bottom-label">Shop</span>
+        </a>
+        <a href="wishlist.html" class="mobile-bottom-link ">
+            <span class="bottom-icon-wrapper">
+                <svg class="bottom-nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+                <span class="bottom-badge" id="bottom-wishlist-badge" style="display: none;">0</span>
+            </span>
+            <span class="bottom-label">Wishlist</span>
+        </a>
+        <a href="cart.html" class="mobile-bottom-link ">
+            <span class="bottom-icon-wrapper">
+                <svg class="bottom-nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"/>
+                    <circle cx="20" cy="21" r="1"/>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                </svg>
+                <span class="bottom-badge" id="bottom-cart-badge" style="display: none;">0</span>
+            </span>
+            <span class="bottom-label">Cart</span>
+        </a>
+        <a href="track-order.html" class="mobile-bottom-link ">
+            <span class="bottom-icon-wrapper">
+                <svg class="bottom-nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                </svg>
+            </span>
+            <span class="bottom-label">Track</span>
+        </a>
+        <a href="login.html" class="mobile-bottom-link active" id="bottom-auth-link">
+            <span class="bottom-icon-wrapper">
+                <svg class="bottom-nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                </svg>
+            </span>
+            <span class="bottom-label">Account</span>
+        </a>
+    </nav>
+
+    <!-- Global JS -->
+    <script src="./js/script.js"></script>
+
+    <!-- Page Specific Script for Login/Signup -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const tabLoginBtn = document.getElementById("tab-login-btn");
+            const tabSignupBtn = document.getElementById("tab-signup-btn");
+            const loginForm = document.getElementById("login-form");
+            const signupForm = document.getElementById("signup-form");
+            const switchToSignup = document.getElementById("switch-to-signup");
+            const switchToLogin = document.getElementById("switch-to-login");
+            const authAlert = document.getElementById("auth-alert");
+            const headerTitle = document.getElementById("auth-header-title");
+            const headerSubtitle = document.getElementById("auth-header-subtitle");
+
+            // URL Params (e.g. ?mode=signup or ?redirect=checkout.html)
+            const urlParams = new URLSearchParams(window.location.search);
+            const redirectUrl = urlParams.get("redirect") || "account.html";
+
+            // If already logged in, redirect directly
+            const existingUser = localStorage.getItem("tangled_user");
+            if (existingUser) {
+                try {
+                    const parsed = JSON.parse(existingUser);
+                    if (parsed && parsed.id) {
+                        window.location.href = redirectUrl;
+                        return;
+                    }
+                } catch(e) {}
+            }
+
+            function showAlert(message, type = "error") {
+                authAlert.className = `auth-alert ${type}`;
+                authAlert.textContent = message;
+                authAlert.style.display = "block";
+            }
+
+            function clearAlert() {
+                authAlert.style.display = "none";
+                authAlert.textContent = "";
+            }
+
+            function showLoginTab() {
+                clearAlert();
+                tabLoginBtn.classList.add("active");
+                tabSignupBtn.classList.remove("active");
+                loginForm.classList.add("active");
+                signupForm.classList.remove("active");
+                headerTitle.textContent = "Welcome to Tangled";
+                headerSubtitle.textContent = "Sign in to view your orders, sync your cart, and track handcrafted creations.";
+            }
+
+            function showSignupTab() {
+                clearAlert();
+                tabSignupBtn.classList.add("active");
+                tabLoginBtn.classList.remove("active");
+                signupForm.classList.add("active");
+                loginForm.classList.remove("active");
+                headerTitle.textContent = "Join the Tangled Family";
+                headerSubtitle.textContent = "Create an account to save your delivery details, cart, and crochet order history.";
+            }
+
+            tabLoginBtn.addEventListener("click", showLoginTab);
+            tabSignupBtn.addEventListener("click", showSignupTab);
+            if (switchToSignup) switchToSignup.addEventListener("click", (e) => { e.preventDefault(); showSignupTab(); });
+            if (switchToLogin) switchToLogin.addEventListener("click", (e) => { e.preventDefault(); showLoginTab(); });
+
+            if (urlParams.get("mode") === "signup") {
+                showSignupTab();
+            }
+
+            // Password Show/Hide toggles
+            const toggleLoginPwd = document.getElementById("toggle-login-pwd");
+            const loginPwd = document.getElementById("login-password");
+            if (toggleLoginPwd && loginPwd) {
+                toggleLoginPwd.addEventListener("click", () => {
+                    const isPwd = loginPwd.type === "password";
+                    loginPwd.type = isPwd ? "text" : "password";
+                    toggleLoginPwd.textContent = isPwd ? "🙈" : "👁️";
+                });
+            }
+
+            const toggleSignupPwd = document.getElementById("toggle-signup-pwd");
+            const signupPwd = document.getElementById("signup-password");
+            if (toggleSignupPwd && signupPwd) {
+                toggleSignupPwd.addEventListener("click", () => {
+                    const isPwd = signupPwd.type === "password";
+                    signupPwd.type = isPwd ? "text" : "password";
+                    toggleSignupPwd.textContent = isPwd ? "🙈" : "👁️";
+                });
+            }
+
+            // Read guest cart & wishlist to sync
+            function getGuestData() {
+                let cart = [];
+                let wishlist = [];
+                try {
+                    cart = JSON.parse(localStorage.getItem("cart")) || [];
+                } catch(e) {}
+                try {
+                    wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+                } catch(e) {}
+                return { cart, wishlist };
+            }
+
+            // Sync user back to localStorage
+            function handleAuthSuccess(user, message) {
+                showAlert(message, "success");
+                localStorage.setItem("tangled_user", JSON.stringify(user));
+
+                // Sync cart & wishlist into localStorage
+                if (Array.isArray(user.cart) && user.cart.length > 0) {
+                    localStorage.setItem("cart", JSON.stringify(user.cart));
+                }
+                if (Array.isArray(user.wishlist) && user.wishlist.length > 0) {
+                    localStorage.setItem("wishlist", JSON.stringify(user.wishlist));
+                }
+
+                if (typeof updateCartCount === "function") updateCartCount();
+                if (typeof updateWishlistCount === "function") updateWishlistCount();
+
+                setTimeout(() => {
+                    window.location.href = redirectUrl;
+                }, 800);
+            }
+
+            // Handle Sign In Submit
+            loginForm.addEventListener("submit", async function(e) {
+                e.preventDefault();
+                clearAlert();
+
+                const submitBtn = document.getElementById("login-submit-btn");
+                submitBtn.disabled = true;
+                submitBtn.textContent = "Signing In... ⏳";
+
+                const identifier = document.getElementById("login-identifier").value.trim();
+                const password = document.getElementById("login-password").value;
+                const { cart, wishlist } = getGuestData();
+
+                try {
+                    const res = await fetch("/api/auth/login", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ identifier, password, cart, wishlist })
+                    });
+                    const data = await res.json();
+
+                    if (!res.ok || !data.success) {
+                        showAlert(data.message || "Failed to sign in. Please verify your credentials.");
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = "Sign In 💕";
+                        return;
+                    }
+
+                    handleAuthSuccess(data.user, data.message || "Signed in successfully! Redirecting...");
+                } catch (err) {
+                    console.error("Sign in error:", err);
+                    showAlert("Unable to connect to Tangled server. Please ensure the backend is running.");
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = "Sign In 💕";
+                }
+            });
+
+            // Handle Sign Up Submit
+            signupForm.addEventListener("submit", async function(e) {
+                e.preventDefault();
+                clearAlert();
+
+                const name = document.getElementById("signup-name").value.trim();
+                const email = document.getElementById("signup-email").value.trim();
+                const phone = document.getElementById("signup-phone").value.trim();
+                const address = document.getElementById("signup-address").value.trim();
+                const password = document.getElementById("signup-password").value;
+                const confirmPassword = document.getElementById("signup-password-confirm").value;
+
+                if (password !== confirmPassword) {
+                    showAlert("Passwords do not match. Please re-enter.");
+                    return;
+                }
+
+                if (password.length < 6) {
+                    showAlert("Password must be at least 6 characters long.");
+                    return;
+                }
+
+                const submitBtn = document.getElementById("signup-submit-btn");
+                submitBtn.disabled = true;
+                submitBtn.textContent = "Creating Account... ⏳";
+
+                const { cart, wishlist } = getGuestData();
+
+                try {
+                    const res = await fetch("/api/auth/signup", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ name, email, phone, address, password, cart, wishlist })
+                    });
+                    const data = await res.json();
+
+                    if (!res.ok || !data.success) {
+                        showAlert(data.message || "Failed to create account. Please try again.");
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = "Create Account & Sync Cart 🧶";
+                        return;
+                    }
+
+                    handleAuthSuccess(data.user, data.message || "Welcome! Your account is ready. Redirecting...");
+                } catch (err) {
+                    console.error("Sign up error:", err);
+                    showAlert("Unable to connect to Tangled server. Please check your connection.");
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = "Create Account & Sync Cart 🧶";
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

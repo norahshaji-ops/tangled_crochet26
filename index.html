@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tangled | Handmade Crochet</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo/logo.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header>
+
+                <nav class="main-navbar">
+
+            <!-- Logo -->
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo/logo.png" alt="Tangled Logo">
+                    <div class="logo-text">
+                        <h2>Tangled</h2>
+                        <p>CROCHET CREATIONS</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Navigation Links (Center) -->
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#products">Shop</a></li>
+                <li><a href="index.html#custom-orders">Custom Orders</a></li>
+                <li><a href="index.html#about">Our Story</a></li>
+                <li><a href="index.html#reviews">Reviews</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+
+            <!-- Utility Action Toolbar (Right) -->
+            <div class="nav-actions">
+                <a href="track-order.html" class="nav-action-link nav-track-link" title="Track Your Order">
+                    <span>📍 Track</span>
+                </a>
+                <a href="wishlist.html" class="nav-action-link nav-icon-badge-btn" id="wishlist-link" title="Saved Wishlist">
+                    <span class="action-icon">🤍</span>
+                    <span class="nav-badge" id="wishlist-count">0</span>
+                </a>
+                <a href="cart.html" class="nav-action-link nav-icon-badge-btn" id="cart-link" title="Shopping Cart">
+                    <span class="action-icon">🛒</span>
+                    <span class="nav-badge" id="cart-count">0</span>
+                </a>
+                <div class="nav-auth-wrapper" id="nav-auth-item">
+                    <a href="login.html" class="nav-auth-btn" id="auth-nav-link" title="Sign In or Account">
+                        <span class="auth-icon">👤</span>
+                        <span class="auth-text">Sign In</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mobile Hamburger Toggle -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu" type="button">
+                ☰
+            </button>
+
+        </nav>
+
+        <!-- Mobile Navigation Drawer -->
+        <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+            <div class="mobile-nav-header">
+                <span class="mobile-nav-title">Menu</span>
+                <button type="button" class="mobile-close-btn" id="mobile-menu-close" aria-label="Close menu">&times;</button>
+            </div>
+            <ul class="mobile-nav-links">
+                <li><a href="#">🏠 Home</a></li>
+                <li><a href="#products">🛍️ Shop Creations</a></li>
+                <li><a href="#custom-orders">🧶 Custom Orders</a></li>
+                <li><a href="track-order.html">📍 Track Order</a></li>
+                <li><a href="wishlist.html">🤍 Wishlist (<span id="mobile-wishlist-count">0</span>)</a></li>
+                <li><a href="cart.html">🛒 Cart (<span id="mobile-cart-count">0</span>)</a></li>
+                <li id="mobile-nav-auth-item"><a href="login.html" id="mobile-auth-nav-link">👤 Sign In / Account</a></li>
+                <li><a href="#about">📖 Our Story</a></li>
+                <li><a href="#reviews">⭐ Customer Reviews</a></li>
+                <li><a href="#contact">📬 Contact Us</a></li>
+            </ul>
+        </div>
+
+    </header>
+
+
+
+    <main>
+
+        <!-- =========================
+             HERO SECTION
+        ========================== -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <h2>Handmade with Love</h2>
+
+                <p>
+                    Beautiful handcrafted crochet creations made with care,
+                    creativity, and premium quality yarn.
+                </p>
+
+                <a href="#products" class="shop-btn">
+                    Shop Now
+                </a>
+
+            </div>
+
+
+            <div class="hero-image">
+
+                <img
+                    src="images/hero/hero.jpg"
+                    alt="Crochet Collection"
+                >
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             PRODUCTS SECTION
+        ========================== -->
+
+        <section class="products" id="products">
+
+            <h2>Our Collection</h2>
+
+            <p>
+                Discover our handmade crochet creations,
+                crafted with love for every occasion.
+            </p>
+
+            <!-- Category Filter & Live Search Bar -->
+            <div class="store-filter-bar">
+                <div class="filter-tabs">
+                    <button type="button" class="category-tab active" data-category="all" onclick="filterCategory('all')">✨ All Creations</button>
+                    <button type="button" class="category-tab" data-category="keychain" onclick="filterCategory('keychain')">🔑 Keychains</button>
+                    <button type="button" class="category-tab" data-category="dish" onclick="filterCategory('dish')">⭐ Trinket Dishes</button>
+                    <button type="button" class="category-tab" data-category="baby" onclick="filterCategory('baby')">👶 Baby Wear</button>
+                </div>
+                <div class="store-search-box">
+                    <input type="text" id="store-search-input" placeholder="🔍 Search crochet creations..." oninput="handleStoreSearch(event)">
+                </div>
+            </div>
+
+            <div class="product-grid">
+
+
+                <!-- =========================
+                     BEE KEYCHAIN
+                ========================== -->
+
+                <div class="product-card" data-id="bee-keychain">
+
+                    <span class="badge best-seller">
+                        Best Seller
+                    </span>
+
+                    <img
+                        src="images/products/bee.jpg"
+                        alt="Bee Keychain"
+                    >
+
+                    <h3>Bee Keychain</h3>
+
+                    <p class="product-description">
+                        Cute handmade crochet bee keychain.
+                    </p>
+
+                    <div class="product-rating">
+                        ★★★★★ <span>4.9</span>
+                    </div>
+
+                    <p class="price">
+                        ₹329
+                    </p>
+                    <button class="cart-btn">
+                        🛒 Add to Cart
+                    </button>
+
+                    <button class="wishlist-btn">
+                        🤍 Wishlist
+                    </button>
+
+                </div>
+
+
+
+                <!-- =========================
+                     STAR TRINKET DISH
+                ========================== -->
+
+                <div class="product-card" data-id="star-trinket-dish">
+
+                    <span class="badge">
+                        New
+                    </span>
+
+                    <img
+                        src="images/products/star-dish.jpg"
+                        alt="Star Trinket Dish"
+                    >
+
+                    <h3>Star Trinket Dish</h3>
+
+                    <p class="product-description">
+                        Handmade crochet star dish,
+                        perfect for keeping your little treasures.
+                    </p>
+
+                    <div class="product-rating">
+                        ★★★★★ <span>4.8</span>
+                    </div>
+
+                    <p class="price">
+                        ₹399
+                    </p>
+                    <button class="cart-btn">🛒 Add to Cart</button>
+
+                    <button class="wishlist-btn">
+                        🤍 Wishlist
+                    </button>
+
+                </div>
+
+
+
+                <!-- =========================
+                     SPIDERMAN KEYCHAIN
+                ========================== -->
+
+                <div class="product-card" data-id="spiderman-keychain">
+
+                    <span class="badge">
+                        New
+                    </span>
+
+                    <img
+                        src="images/products/spiderman.jpg"
+                        alt="Spiderman Keychain"
+                    >
+
+                    <h3>Spiderman Keychain</h3>
+
+                    <p class="product-description">
+                        Cute handmade crochet Spiderman keychain,
+                        perfect for gifting.
+                    </p>
+
+                    <div class="product-rating">
+                        ★★★★★ <span>4.8</span>
+                    </div>
+
+                    <p class="price">
+                        ₹219
+                    </p>
+                    <button class="cart-btn">🛒 Add to Cart</button>
+
+                    <button class="wishlist-btn">
+                        🤍 Wishlist
+                    </button>
+
+                </div>
+
+
+
+                <!-- =========================
+                     CHERRY KEYCHAIN
+                ========================== -->
+
+                <div class="product-card" data-id="cherry-keychain">
+
+                    <img
+                        src="images/products/cherry.jpg"
+                        alt="Cherry Keychain"
+                    >
+
+                    <h3>Cherry Keychain</h3>
+
+                    <p class="product-description">
+                        Sweet handmade crochet cherry keychain
+                        for a cute everyday accessory.
+                    </p>
+
+                    <div class="product-rating">
+                        ★★★★★ <span>4.9</span>
+                    </div>
+
+                    <p class="price">
+                        ₹89
+                    </p>
+                    <button class="cart-btn">🛒 Add to Cart</button>
+
+                    <button class="wishlist-btn">
+                        🤍 Wishlist
+                    </button>
+
+                </div>
+
+
+
+                <!-- =========================
+                     BABY ROMPER
+                ========================== -->
+
+                <div class="product-card" data-id="baby-romper">
+
+                    <span class="badge">
+                        New
+                    </span>
+
+                    <img
+                        src="images/products/baby.jpg"
+                        alt="Baby Romper"
+                    >
+
+                    <h3>Baby Romper</h3>
+
+                    <p class="product-description">
+                        Soft handmade crochet baby romper,
+                        perfect for little ones.
+                    </p>
+
+                    <div class="product-rating">
+                        ★★★★★ <span>4.9</span>
+                    </div>
+
+                    <p class="price">
+                        ₹799
+                    </p>
+                    <button class="cart-btn">🛒 Add to Cart</button>
+                    <button class="wishlist-btn">
+                        🤍 Wishlist
+                    </button>
+
+                </div>
+
+
+
+                <!-- =========================
+                     EVIL EYE KEYCHAIN
+                ========================== -->
+
+                <div class="product-card" data-id="evileye-keychain">
+
+                    <img
+                        src="images/products/evileye.jpg"
+                        alt="Evil Eye Keychain"
+                    >
+
+                    <h3>Evil Eye Keychain</h3>
+
+                    <p class="product-description">
+                        Handmade crochet evil eye keychain,
+                        a cute little everyday accessory.
+                    </p>
+
+                    <div class="product-rating">
+                        ★★★★★ <span>4.8</span>
+                    </div>
+
+                    <p class="price">
+                        ₹99
+                    </p>
+                    <button class="cart-btn">🛒 Add to Cart</button>
+                    
+
+                    <button class="wishlist-btn">
+                        🤍 Wishlist
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </section>
+        <!-- =========================
+     CUSTOM ORDERS SECTION
+========================== -->
+
+<section class="custom-orders" id="custom-orders">
+
+    <div class="custom-content">
+
+        <h2>Made Just for You</h2>
+
+        <p>
+            Have something special in mind?
+            We love creating personalized crochet pieces
+            made especially for you.
+        </p>
+
+        <div class="custom-features">
+
+            <div class="custom-feature">
+                <span>🎨</span>
+                <h3>Choose Your Colours</h3>
+                <p>Pick the colours that match your style.</p>
+            </div>
+
+            <div class="custom-feature">
+                <span>🧶</span>
+                <h3>Custom Designs</h3>
+                <p>Tell us your idea and we'll bring it to life.</p>
+            </div>
+
+            <div class="custom-feature">
+                <span>🎁</span>
+                <h3>Perfect for Gifting</h3>
+                <p>Create something meaningful for someone special.</p>
+            </div>
+
+        </div>
+
+        <button id="open-custom-modal-btn" class="custom-btn" style="border: none; cursor: pointer;">
+            Place a Custom Order
+        </button>
+
+    </div>
+
+</section>
+<!-- =========================
+     ABOUT TANGLED
+========================== -->
+
+<section class="about" id="about">
+
+    <div class="about-content">
+
+        <div class="about-text">
+
+            <h2>The Story Behind Tangled</h2>
+
+            <p>
+                Every Tangled creation is handmade with love,
+                patience, and attention to detail.
+            </p>
+
+            <p>
+                From tiny keychains to beautiful baby pieces,
+                each crochet creation is made to bring a little
+                more warmth and joy into everyday life.
+            </p>
+
+            <p>
+                We believe handmade things are special because
+                every piece carries a little piece of the person
+                who made it.
+            </p>
+
+        </div>
+
+        <div class="about-image">
+
+            <img
+                src="images/hero/hero.jpg"
+                alt="Handmade Tangled Crochet Creations"
+            >
+
+        </div>
+
+    </div>
+
+</section>
+<!-- =========================
+     REVIEWS
+========================== -->
+
+<section class="reviews" id="reviews">
+
+    <h2>Customer Love</h2>
+
+    <p class="reviews-subtitle">
+        A little love from the people who chose Tangled.
+    </p>
+
+    <div class="review-grid">
+
+        <div class="review-card">
+
+            <div class="review-stars">
+                ★★★★★
+            </div>
+
+            <p>
+                "The Bee Keychain is even cuter in person! The stitching is so neat and durable, and the packaging was lovely. Absolutely in love!"
+            </p>
+
+            <h3>— Ananya R.</h3>
+
+        </div>
+
+
+        <div class="review-card">
+
+            <div class="review-stars">
+                ★★★★★
+            </div>
+
+            <p>
+                "Ordered the Star Trinket Dish for my jewelry. You can truly feel the artisanal care and quality cotton yarn that went into crafting it."
+            </p>
+
+            <h3>— Sneha K.</h3>
+
+        </div>
+
+
+        <div class="review-card">
+
+            <div class="review-stars">
+                ★★★★★
+            </div>
+
+            <p>
+                "The crochet Baby Romper was the sweetest gift for my niece! Wonderfully soft, high quality, and arrived right on time."
+            </p>
+
+            <h3>— Meera P.</h3>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- =========================
+     CONTACT SECTION
+========================== -->
+
+<section class="contact" id="contact">
+
+    <div class="contact-content">
+
+        <h2>Let's Create Something Special</h2>
+
+        <p>
+            Have a question, want to place a custom order,
+            or simply want to say hello? We'd love to hear from you!
+        </p>
+
+        <div class="contact-options">
+
+            <!-- Email -->
+
+            <div class="contact-card">
+
+                <span>📧</span>
+
+                <h3>Email Us</h3>
+
+                <a href="mailto:moonthread2026@gmail.com">
+                    moonthread2026@gmail.com
+                </a>
+
+            </div>
+
+
+            <!-- Instagram -->
+
+            <div class="contact-card">
+
+                <span>📸</span>
+
+                <h3>Follow Us</h3>
+
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                    @tangled.crochet
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+    </main>
+
+
+    <!-- ==========================================
+         CUSTOM ORDER MODAL
+    ========================================== -->
+    <div id="custom-modal" class="modal-overlay">
+        <div class="modal-card">
+            <button id="close-modal-btn" class="modal-close-btn" aria-label="Close modal">&times;</button>
+            <div class="modal-header">
+                <h2>Custom Crochet Request 🧶</h2>
+                <p>Upload a reference photo or share your idea! Our artisan reviews every request for pattern feasibility and schedule availability before confirming.</p>
+            </div>
+            <form id="custom-order-form">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div>
+                        <label for="custom-name">Your Full Name <span style="color: #C0392B;">*</span></label>
+                        <input type="text" id="custom-name" placeholder="e.g. Priya Sharma" required>
+                    </div>
+                    <div>
+                        <label for="custom-phone">WhatsApp / Phone <span style="color: #C0392B;">*</span></label>
+                        <input type="tel" id="custom-phone" placeholder="e.g. 9876543210" required>
+                    </div>
+                </div>
+
+                <label for="custom-email">Email Address (Optional)</label>
+                <input type="email" id="custom-email" placeholder="e.g. your_email@gmail.com">
+
+                <label for="custom-idea">What would you like us to crochet? <span style="color: #C0392B;">*</span></label>
+                <textarea id="custom-idea" rows="3" placeholder="Describe the item, pattern, dimensions, or specific design details..." required></textarea>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div>
+                        <label for="custom-colors">Preferred Colors</label>
+                        <input type="text" id="custom-colors" placeholder="e.g. Sage green, cream, blush pink">
+                    </div>
+                    <div>
+                        <label for="custom-needed-by">Needed By Date (Optional)</label>
+                        <input type="date" id="custom-needed-by">
+                    </div>
+                </div>
+
+                <!-- Reference Photo Upload Dropzone -->
+                <label>Reference Photo / Design Inspiration (Recommended)</label>
+                <input type="file" id="custom-image-file" accept="image/jpeg,image/png,image/webp,image/gif" style="display: none;">
+                <div class="custom-file-upload-box" id="custom-upload-dropzone" role="button" tabindex="0">
+                    <span class="custom-upload-icon">📸</span>
+                    <div class="custom-upload-text">Click or Drag & Drop a Reference Photo</div>
+                    <div class="custom-upload-hint">Upload a Pinterest photo, pattern screenshot, or sketch (JPG, PNG, WebP up to 5MB)</div>
+                </div>
+
+                <!-- Image Preview Box -->
+                <div class="custom-img-preview-wrapper" id="custom-preview-wrapper" style="display: none;">
+                    <img id="custom-img-preview" class="custom-img-preview" src="" alt="Reference Preview">
+                    <button type="button" id="remove-custom-img-btn" class="remove-custom-img-btn" title="Remove reference photo">&times;</button>
+                    <div id="custom-img-name" style="padding: 6px 12px; font-size: 12px; color: #5A4632; background: #FAF7F0; border-top: 1px solid #D8C5A8;"></div>
+                </div>
+
+                <!-- Artisan Availability Review Notice -->
+                <div style="background: #FDF9F3; border: 1px solid #E3D7C5; border-left: 4px solid #4E5D34; border-radius: 12px; padding: 12px 14px; margin: 14px 0; text-align: left;">
+                    <p style="font-size: 13px; color: #4A3E31; line-height: 1.5; margin: 0;">
+                        ⏳ <strong>Artisan Availability Review:</strong> Because every Tangled creation is handmade stitch-by-stitch, our artisan reviews each request for pattern difficulty and workshop schedule. You will receive an acceptance quote or availability confirmation within 24 hours on WhatsApp / Email. No advance payment required now!
+                    </p>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="submit" id="submit-custom-order-btn" class="custom-submit-btn">
+                        📩 Submit Request for Artisan Review
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         PRODUCT QUICK-VIEW MODAL
+    ========================================== -->
+    <div id="quickview-modal" class="modal-overlay quickview-overlay">
+        <div class="modal-card quickview-card">
+            <button id="close-quickview-btn" class="modal-close-btn" aria-label="Close modal">&times;</button>
+            <div class="quickview-grid">
+                <!-- Left: Product Image & Interactive Zoom/Carousel -->
+                <div class="quickview-image-col">
+                    <div class="quickview-img-wrapper zoom-container" id="qv-zoom-container">
+                        <img id="qv-image" class="qv-main-img" src="" alt="Crochet Product">
+                        <span id="qv-badge" class="badge"></span>
+
+                        <!-- Zoom Hint Pill -->
+                        <div class="zoom-lens-indicator" id="qv-zoom-hint">
+                            <span>🔍 Hover / Tap to Zoom</span>
+                        </div>
+
+                        <!-- Fullscreen Lightbox Trigger Button -->
+                        <button type="button" class="qv-zoom-toggle-btn" id="qv-zoom-toggle-btn" aria-label="Open Fullscreen Lightbox" title="View Fullscreen">
+                            ⛶
+                        </button>
+
+                        <!-- Carousel Controls -->
+                        <button type="button" class="carousel-nav-btn prev-btn" id="qv-prev-img" aria-label="Previous image">‹</button>
+                        <button type="button" class="carousel-nav-btn next-btn" id="qv-next-img" aria-label="Next image">›</button>
+
+                        <!-- Carousel Dots -->
+                        <div class="carousel-dots" id="qv-carousel-dots"></div>
+                    </div>
+
+                    <!-- Thumbnails Strip -->
+                    <div class="quickview-thumbnails-strip" id="qv-thumbnails-strip"></div>
+                </div>
+
+                <!-- Right: Details & Purchase -->
+                <div class="quickview-details-col">
+                    <div class="qv-status-row">
+                        <span id="qv-stock-badge" class="qv-stock-pill">🟢 In Stock</span>
+                    </div>
+
+                    <h2 id="qv-name" class="qv-title">Product Name</h2>
+
+                    <div class="qv-rating-row">
+                        <span class="stars">★★★★★</span>
+                        <span id="qv-rating" class="rating-num">4.9</span>
+                        <span class="qv-verified-label">✓ Verified Handmade</span>
+                    </div>
+
+                    <div class="qv-price-row">
+                        <span id="qv-price" class="qv-price-tag">₹0</span>
+                        <span class="qv-taxes-text">Inclusive of all taxes</span>
+                    </div>
+
+                    <p id="qv-description" class="qv-description-text"></p>
+
+                    <!-- Specifications Box -->
+                    <div class="qv-specs-box">
+                        <div class="qv-spec-item">
+                            <span class="qv-spec-icon">🧶</span>
+                            <div class="qv-spec-content">
+                                <strong>Material</strong>
+                                <p>100% Premium Milk Cotton & Soft Yarn</p>
+                            </div>
+                        </div>
+                        <div class="qv-spec-item">
+                            <span class="qv-spec-icon">⏳</span>
+                            <div class="qv-spec-content">
+                                <strong>Handcrafted Delivery</strong>
+                                <p>Ships in 5–20 days (crocheted to order)</p>
+                            </div>
+                        </div>
+                        <div class="qv-spec-item">
+                            <span class="qv-spec-icon">🫧</span>
+                            <div class="qv-spec-content">
+                                <strong>Care Instructions</strong>
+                                <p>Gentle hand wash in cold water & flat dry</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quantity & Cart Row -->
+                    <div class="qv-actions-row" id="qv-actions-wrapper">
+                        <div class="qv-quantity-wrapper">
+                            <label class="qv-qty-label">Quantity:</label>
+                            <div class="qv-quantity-selector">
+                                <button type="button" class="qv-qty-btn" id="qv-qty-minus">−</button>
+                                <span id="qv-qty-value" class="qv-qty-num">1</span>
+                                <button type="button" class="qv-qty-btn" id="qv-qty-plus">+</button>
+                            </div>
+                        </div>
+
+                        <div class="qv-button-group">
+                            <button type="button" id="qv-add-cart-btn" class="qv-cart-btn">
+                                🛒 Add to Cart
+                            </button>
+                            <button type="button" id="qv-wishlist-btn" class="qv-wishlist-btn" title="Add to Wishlist">
+                                🤍
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Out-of-Stock Fallback Box (hidden by default) -->
+                    <div id="qv-soldout-box" class="qv-soldout-box" style="display: none;">
+                        <p>This item is currently sold out, but we can crochet one specially for you!</p>
+                        <button type="button" id="qv-custom-request-btn" class="qv-custom-btn">
+                            🧶 Request as Custom Order
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         FULLSCREEN LIGHTBOX MODAL
+    ========================================== -->
+    <div id="lightbox-modal" class="lightbox-overlay" style="display: none;">
+        <button id="close-lightbox-btn" class="lightbox-close-btn" aria-label="Close Lightbox">&times;</button>
+        <button type="button" class="lightbox-nav-btn prev-btn" id="lightbox-prev" aria-label="Previous image">‹</button>
+        <div class="lightbox-img-wrapper">
+            <img id="lightbox-image" src="" alt="Crochet High Resolution View">
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
+        <button type="button" class="lightbox-nav-btn next-btn" id="lightbox-next" aria-label="Next image">›</button>
+    </div>
+
+    <!-- ==========================================
+         MOBILE BOTTOM NAVIGATION BAR
+    ========================================== -->
+        <!-- ==========================================
+         FLOATING AESTHETIC MOBILE NAVIGATION DOCK
+    ========================================== -->
+    <nav class="mobile-bottom-bar" aria-label="Mobile Navigation">
+        <a href="index.html" class="mobile-bottom-link active">
+            <span class="bottom-icon-wrapper">
+                <svg class="bottom-nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 10.5L12 3l9 7.5"/>
+                    <path d="M5 9.5V20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5"/>
+                    <path d="M9 21v-6a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v6"/>
+                </svg>
+            </span>
+            <span class="bottom-label">Home</span>
+        </a>
+        <a href="index.html#products" class="mobile-bottom-link ">
+            <span class="bottom-icon-wrapper">
+                <svg class="bottom-nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <path d="M16 10a4 4 0 0 1-8 0"/>
+                </svg>
+            </span>
+            <span class="bottom-label">Shop</span>
+        </a>
+        <a href="wishlist.html" class="mobile-bottom-link ">
+            <span class="bottom-icon-wrapper">
+                <svg class="bottom-nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+                <span class="bottom-badge" id="bottom-wishlist-badge" style="display: none;">0</span>
+            </span>
+            <span class="bottom-label">Wishlist</span>
+        </a>
+        <a href="cart.html" class="mobile-bottom-link ">
+            <span class="bottom-icon-wrapper">
+                <svg class="bottom-nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"/>
+                    <circle cx="20" cy="21" r="1"/>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                </svg>
+                <span class="bottom-badge" id="bottom-cart-badge" style="display: none;">0</span>
+            </span>
+            <span class="bottom-label">Cart</span>
+        </a>
+        <a href="track-order.html" class="mobile-bottom-link ">
+            <span class="bottom-icon-wrapper">
+                <svg class="bottom-nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                </svg>
+            </span>
+            <span class="bottom-label">Track</span>
+        </a>
+        <a href="login.html" class="mobile-bottom-link " id="bottom-auth-link">
+            <span class="bottom-icon-wrapper">
+                <svg class="bottom-nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                </svg>
+            </span>
+            <span class="bottom-label">Account</span>
+        </a>
+    </nav>
+
+
+    <!-- JavaScript -->
+
+    <script src="./js/script.js"></script>
+
+</body>
+
+</html>
